@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+
+{% block body %}
+	
+	<h2 class="mp-2">Derniers billets du blog :</h2>
+	<div id="posts">
+		{% for post in posts %}
+			<div class="post">
+				<h3 class="text-dark text-center border-top-radius-20">{{ post['title'] }}</h3>
+				<p class="p-1 text-light">{{ post['content']|slice(0, 199) }} ...</p>
+				<div class="dark flex-center">
+					<a class="mp-1 text-dark" href='post?action=showPost&id={{ post['id'] }}'>Consulter</a>
+					{% block test %}{% endblock %}
+				</div>
+				<div>
+					<p class="p-1 text-center text-light border-bottom-radius-20">
+						<em>Posté le {{ post['creation_date_fr'] }}</em>
+					</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

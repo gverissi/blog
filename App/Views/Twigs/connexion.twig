@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+
+{% block body %}
+
+	<form class="mx-4 my-2" action="connexion?action=connexion" method="post">
+		<div class="flex-center">
+			<label class="m-1 width-400 text-right" for="login">Pseudo</label>
+			<input class="m-1 width-400" type="text" id="login" name="login" />
+		</div>
+		<div class="flex-center">
+			<label class="m-1 width-400 text-right" for="pwd">Mot de passe</label><br />
+			<input class="m-1 width-400" type="text" id="pwd" name="pwd" />
+		</div>
+		<div class="flex-center">
+			<p class="m-1 width-400 text-right form-err">
+				{% if errorMessage is not empty %}
+					{{ errorMessage }}
+				{% endif %}
+			</p>
+			<input class="m-1 width-400" type="submit" value="Se connecter">
+		</div>
+	</form>
+	
+{% endblock %}

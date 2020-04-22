@@ -1,0 +1,19 @@
+{
+	"name": "cda1/03_blog_poo_mixed_twig",
+	"authors": [
+		{
+			"name": "greg",
+			"email": "greg.verissimo@gmail.com"
+		}
+	],
+	"require": {
+		"twig/twig": "3.0",
+		"fzaninotto/faker": "^1.9"
+	},
+	"autoload": {
+		"psr-4": {
+			"Core\\": "Core/",
+			"App\\": "App/"
+		}
+	}
+}

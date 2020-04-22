@@ -1,0 +1,45 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+
+{% block body %}
+
+	<div class="m-4">
+		<h2 class="p-2 text-dark text-center border-top-radius-20">{{ post['title'] }}</h2>
+		<p class="p-2 text-light">{{ post['content'] }}</p>
+		<p class="p-1 text-dark text-center border-bottom-radius-20"><em>le {{ post['creation_date_fr'] }}</em></p>
+	</div>
+
+	<h2 class="mx-4 my-2">Commentaires :</h2>
+
+	<form class="mx-4 my-2" action="post?action=postComment&id={{ post['id'] }}" method="post">
+		<div class="flex-center">
+			<label class="m-1 width-200 text-right" for="author">Auteur</label>
+			<input class="m-1 width-400" type="text" id="author" name="author" />
+		</div>
+		<div class="flex-center">
+			<label class="m-1 width-200 text-right" for="comment">Commentaire</label><br />
+			<textarea class="m-1 width-400" id="comment" name="comment"></textarea>
+		</div>
+		<div class="flex-center">
+			<p class="m-1 width-200 text-right"></p>
+			<input class="m-1 width-400" type="submit" value="Ajouter un commentaire">
+		</div>
+	</form>
+
+	<div class="m-4">
+		{% for comment in comments %}
+			<p class="p-1 text-dark text-center">
+				<strong>{{ comment['author'] }}</strong> <em>(Ajouté le {{ comment['comment_date_fr'] }})</em>
+			</p>
+			<p class="p-2 text-light">{{ comment['comment'] }}</p>
+			{% if comment['author'] == session['login'] %}
+				<div class="flex-center">
+					<a class="mp-1 text-dark" href='edit?action=editComment&postId={{ post['id'] }}&commentId={{ comment['id'] }}'>Editer</a>
+				</div>
+			{% endif %}
+			
+		{% endfor %}
+	</div>
+	
+{% endblock %}

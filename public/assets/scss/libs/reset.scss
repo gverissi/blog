@@ -1,0 +1,40 @@
+
+:root{
+	font-size: 16px;
+	font-family: Arial, sans-serif;
+}
+
+body {
+	margin: 0;
+}
+
+h1, h2, h3, p, a {
+	margin: 0;
+	padding: 0;
+}
+
+input, textarea {
+	margin: 0;
+	padding: 0.5rem;
+	font-size: 1rem;
+	font-family: Arial, sans-serif;
+}
+input {
+	box-sizing: content-box;
+}
+
+h1 {
+	font-size: 3rem;
+}
+h2 {
+	font-size: 2rem;
+}
+h3 {
+	font-size: 1.5rem;
+}
+p {
+	font-size: 1rem;
+}
+a {
+	font-size: 1rem;
+}
