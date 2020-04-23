@@ -6,21 +6,21 @@
 
 	<h2 class="mx-4 my-2">Editer le commentaire :</h2>
 
-	<form class="mx-4 my-2" action="edit?action=updateComment&postId={{ post['id'] }}&commentId={{ comment['id'] }}" method="post">
-		<div class="flex-center">
-			<label class="m-1 width-200 text-right" for="author">Auteur</label>
-			<input class="m-1 width-400" type="text" id="author" name="author" />
-		</div>
+	<form class="mx-4 my-2" action="edit?action=updateComment&postId={{ post.id }}&commentId={{ comment.id }}" method="post">
 		<div class="flex-center">
 			<label class="m-1 width-200 text-right" for="comment">Commentaire</label><br />
 			<textarea class="m-1 width-400" id="comment" name="comment">{{ comment.comment }}</textarea>
 		</div>
 		<div class="flex-center">
 			<p class="m-1 width-200 text-right"></p>
-			<input class="m-1 width-400" type="submit" value="Modifier le commentaire">
+			<input class="btn width-400" type="submit" value="Modifier le commentaire">
 		</div>
+		<div class="flex-center">
+			<p class="m-1 width-200 text-right"></p>
+		<a class="btn width-400" href='edit?action=deleteComment&postId={{ post.id }}&commentId={{ comment.id }}'>Supprimer le commentaire</a>
+	</div>
 	</form>
 
-	<a class="mp-1 text-dark" href='edit?action=deleteComment&postId={{ post['id'] }}&commentId={{ comment['id'] }}'>Supprimer</a>
 	
+
 {% endblock %}

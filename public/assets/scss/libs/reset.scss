@@ -18,10 +18,11 @@ input, textarea {
 	padding: 0.5rem;
 	font-size: 1rem;
 	font-family: Arial, sans-serif;
+	box-sizing: border-box;
 }
-input {
-	box-sizing: content-box;
-}
+// input {
+// 	// box-sizing: content-box;
+// }
 
 h1 {
 	font-size: 3rem;
@@ -37,4 +38,5 @@ p {
 }
 a {
 	font-size: 1rem;
+	box-sizing: border-box;
 }

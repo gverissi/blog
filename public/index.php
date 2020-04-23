@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 $router = new Core\Router();
@@ -12,7 +14,7 @@ $triad = ['model' => 'HomeMod', 'view' => 'HomeView', 'controller' => 'HomeCtr']
 $router->add($route, $actions, $triad);
 
 $route = '/post';
-$actions = ['showPost', 'postComment'];
+$actions = ['showPost', 'addComment'];
 $triad = ['model' => 'PostMod', 'view' => 'PostView', 'controller' => 'PostCtr'];
 $router->add($route, $actions, $triad);
 

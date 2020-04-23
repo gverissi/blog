@@ -71,12 +71,12 @@ $req = <<<EOF
 CREATE TABLE comments (
     id serial NOT NULL,
     post_id int NOT NULL,
-    author int NOT NULL,
+    user_id int NOT NULL,
     comment text NOT NULL,
     comment_date timestamp NOT NULL,
 	CONSTRAINT pk_com PRIMARY KEY (id),
 	FOREIGN KEY(post_id) REFERENCES posts(id) ON DELETE CASCADE,
-	FOREIGN KEY(author) REFERENCES users(id) ON DELETE CASCADE
+	FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 EOF;
 $res = pg_query($db, $req);
@@ -96,6 +96,7 @@ $faker = Faker\Factory::create('fr_FR'); // create a French faker
 // -----
 $nbUsers = 100;
 $datas = [];
+$datas[0] = ["admin", "admin"];
 for ($i = 1 ; $i <= $nbUsers ; $i++) {
 	$login = $faker->unique()->firstName;
 	$password = "pwd";
@@ -146,16 +147,17 @@ $k = 0;
 for ($i = 1 ; $i <= $nbPosts ; $i++) {
 	for ($j = 1 ; $j <= mt_rand(2, 10) ; $j++) {
 		$k++;
-		$author = mt_rand(1, $nbUsers);
+		$user_id = mt_rand(1, $nbUsers);
 		$comment = $faker->realText(100);
-		$datas[$k] = [$i, $author, $comment];
+		$datas[$k] = [$i, $user_id, $comment];
 	}
 }
-$req = $db->prepare("INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())");
+$req = $db->prepare("INSERT INTO comments(post_id, user_id, comment, comment_date) VALUES(?, ?, ?, NOW())");
 try {
 	$db->beginTransaction();
 	foreach ($datas as $row) {
-		$req->execute($row);
+		$res = $req->execute($row);
+		if (!$res) exit("Errrrrrrrrrrrrrror Records in table comments\n");
 	}
 	$db->commit();
 	echo "Records created successfully in table comments\n";

@@ -80,3 +80,21 @@
 	display: flex;
 	justify-content: center;
 }
+
+.btn {
+	@extend .mp-1;
+	@extend .text-dark;
+	@extend .text-center;
+	display: block;
+	border: 2px solid #ddd;
+	text-decoration: none;
+	cursor: pointer;
+	&:hover {
+		color: #333;
+		background-color: #ddd;
+	}
+}
+
+.bg-gray {
+	background-color: #555555;
+}

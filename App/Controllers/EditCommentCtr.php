@@ -11,7 +11,10 @@ class EditCommentCtr {
 
 	public function editComment() {
 		$this->model->post = ["id" => $_GET["postId"]];
-		$this->model->getComment($_GET["commentId"]);
+		$this->model->comment = [
+			"id" => $_GET["commentId"],
+			"comment" => $_GET["comment"]
+		];
 	}
 
 	public function updateComment() {
@@ -20,7 +23,7 @@ class EditCommentCtr {
 			throw new \Exception("Impossible de modifier le commentaire !");
 		}
 		else {
-			header("Location: /post?action=showPost&id={$_GET["postId"]}");
+			header("Location: /post?action=showPost&postId={$_GET["postId"]}");
 		}
 	}
 
@@ -30,7 +33,7 @@ class EditCommentCtr {
 			throw new \Exception("Impossible de supprimer le commentaire !");
 		}
 		else {
-			header("Location: /post?action=showPost&id={$_GET["postId"]}");
+			header("Location: /post?action=showPost&postId={$_GET["postId"]}");
 		}
 	}
 }

@@ -17,10 +17,7 @@ input, textarea {
   padding: 0.5rem;
   font-size: 1rem;
   font-family: Arial, sans-serif;
-}
-
-input {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -41,9 +38,10 @@ p {
 
 a {
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
-.mp-1 {
+.mp-1, .btn {
   margin: 1rem;
   padding: 1rem;
 }
@@ -113,12 +111,12 @@ a {
   color: #333;
 }
 
-.text-dark {
+.text-dark, .btn {
   background-color: #333;
   color: #ddd;
 }
 
-.text-center {
+.text-center, .btn {
   text-align: center;
 }
 
@@ -137,6 +135,21 @@ a {
 .flex-center {
   display: flex;
   justify-content: center;
+}
+
+.btn {
+  display: block;
+  border: 2px solid #ddd;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover {
+  color: #333;
+  background-color: #ddd;
+}
+
+.bg-gray {
+  background-color: #555555;
 }
 
 header #div_header_img {
@@ -215,17 +228,6 @@ header .show {
 #posts .post > p {
   height: 100px;
   overflow: hidden;
-}
-#posts .post .dark {
-  background-color: #555555;
-}
-#posts .post .dark a {
-  border: 2px solid #ddd;
-  text-decoration: none;
-}
-#posts .post .dark a:hover {
-  color: #333;
-  background-color: #ddd;
 }
 
 form label {

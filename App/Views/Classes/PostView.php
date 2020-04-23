@@ -2,7 +2,7 @@
 
 namespace App\Views\Classes;
 
-session_start();
+// session_start();
 
 class PostView extends \Core\View {
 	private $model;
