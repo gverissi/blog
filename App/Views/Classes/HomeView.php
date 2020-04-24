@@ -13,10 +13,17 @@ class HomeView extends View {
 
 	public function display() {
 		$params = [
-			'pageTitle' => 'Mon blog',
-			'posts' => $this->model->posts,
-			'session' => $_SESSION
+			"pageTitle" => "Mon blog",
+			"posts" => $this->model->posts,
+			"session" => $_SESSION,
+			"active" => [
+				"home" => true,
+				"posts" => false,
+				"createPost" => false,
+				"inscription" => false,
+				"connexion" => false
+			]
 		];
-		echo self::$twig->render('home.twig', $params);
+		echo self::$twig->render("home.twig", $params);
 	}
 }

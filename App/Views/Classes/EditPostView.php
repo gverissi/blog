@@ -14,7 +14,15 @@ class EditPostView extends View {
 	public function display() {
 		$params = [
 			'pageTitle' => 'Edit post',
-			'post' => $this->model->post
+			'post' => $this->model->post,
+			'session' => $_SESSION,
+			"active" => [
+				"home" => false,
+				"posts" => false,
+				"createPost" => false,
+				"inscription" => false,
+				"connexion" => false
+			]
 		];
 		echo self::$twig->render('edit_post.twig', $params);
 	}

@@ -16,7 +16,14 @@ class PostView extends View {
 			'pageTitle' => 'Post',
 			'post' => $this->model->post,
 			'comments' => $this->model->comments,
-			'session' => $_SESSION
+			'session' => $_SESSION,
+			"active" => [
+				"home" => false,
+				"posts" => false,
+				"createPost" => false,
+				"inscription" => false,
+				"connexion" => false
+			]
 		];
 		echo self::$twig->render('post.twig', $params);
 	}

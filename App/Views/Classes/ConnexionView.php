@@ -15,7 +15,14 @@ class ConnexionView extends View {
 		$params = [
 			'pageTitle' => 'Connexion',
 			'errorMessage' => $this->model->errorMessage,
-			'session' => $_SESSION
+			'session' => $_SESSION,
+			"active" => [
+				"home" => false,
+				"posts" => false,
+				"createPost" => false,
+				"inscription" => false,
+				"connexion" => true
+			]
 		];
 		echo self::$twig->render('connexion.twig', $params);
 	}

@@ -15,7 +15,15 @@ class EditCommentView extends View {
 		$params = [
 			'pageTitle' => 'Edit comment',
 			'post' => $this->model->post,
-			'comment' => $this->model->comment
+			'comment' => $this->model->comment,
+			'session' => $_SESSION,
+			"active" => [
+				"home" => false,
+				"posts" => false,
+				"createPost" => false,
+				"inscription" => false,
+				"connexion" => false
+			]
 		];
 		echo self::$twig->render('edit_comment.twig', $params);
 	}

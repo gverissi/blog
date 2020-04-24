@@ -13,7 +13,15 @@ class CreatePostView extends View {
 
 	public function display() {
 		$params = [
-			'pageTitle' => 'Create post'
+			'pageTitle' => 'Create post',
+			'session' => $_SESSION,
+			"active" => [
+				"home" => false,
+				"posts" => false,
+				"createPost" => true,
+				"inscription" => false,
+				"connexion" => false
+			]
 		];
 		echo self::$twig->render('create_post.twig', $params);
 	}
