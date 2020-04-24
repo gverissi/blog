@@ -2,9 +2,9 @@
 
 namespace App\Views\Classes;
 
-// session_start();
+use Core\View;
 
-class PostView extends \Core\View {
+class PostView extends View {
 	private $model;
 
 	public function __construct($model) {

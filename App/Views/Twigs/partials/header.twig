@@ -8,6 +8,9 @@
 		<ul>
 			<li><a class="active" href="home?action=showListPosts">Accueil</a></li>
 			<li><a href="">List des billets</a></li>
+			{% if (session.login == "admin") %}
+				<li><a href="createpost?action=createPost">Ajouter un billets</a></li>
+			{% endif %}
 		</ul>
 		<ul>
 			<li><a href="">Inscription</a></li>

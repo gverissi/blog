@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded',function(){
+// document.addEventListener('DOMContentLoaded',function(){
+
+window.addEventListener("load", function (){
+	
 
 	// let vw = window.innerWidth
 	// let trueVw = document.documentElement.clientWidth

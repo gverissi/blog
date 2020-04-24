@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class EditCommentMod extends \Core\Model {
+use Core\Model;
+
+class EditCommentMod extends Model {
 	public $post;
 	public $comment;
 

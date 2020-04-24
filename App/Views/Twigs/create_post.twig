@@ -1,0 +1,24 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+
+{% block body %}
+
+	<h2 class="mx-4 my-2">Ajouter un billet :</h2>
+
+	<form class="mx-4 my-2" action="createpost?action=addPost" method="post">
+		<div class="flex-center">
+			<label class="m-1 width-200 text-right" for="title">Titre du billet</label><br />
+			<input class="m-1 width-400" type="text" id="title" name="title"/>
+		</div>
+		<div class="flex-center">
+			<label class="m-1 width-200 text-right" for="content">Contenu du billet</label><br />
+			<textarea class="m-1 width-400" id="content" name="content"></textarea>
+		</div>
+		<div class="flex-center">
+			<p class="m-1 width-200 text-right"></p>
+			<input class="btn width-400" type="submit" value="Ajouter le billet">
+		</div>
+	</form>
+
+{% endblock %}

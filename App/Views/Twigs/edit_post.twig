@@ -1,0 +1,30 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+
+{% block body %}
+
+	<h2 class="mx-4 my-2">Editer le billet :</h2>
+
+	<form class="mx-4 my-2" action="editpost?action=updatePost&postId={{ post.id }}" method="post">
+		<div class="flex-center">
+			<label class="m-1 width-200 text-right" for="title">Titre du billet</label><br />
+			<input class="m-1 width-400" type="text" id="title" name="title" value="{{ post.title }}"/>
+		</div>
+		<div class="flex-center">
+			<label class="m-1 width-200 text-right" for="content">Contenu du billet</label><br />
+			<textarea class="m-1 width-400" id="content" name="content">{{ post.content }}</textarea>
+		</div>
+		<div class="flex-center">
+			<p class="m-1 width-200 text-right"></p>
+			<input class="btn width-400" type="submit" value="Modifier le billet">
+		</div>
+		<div class="flex-center">
+			<p class="m-1 width-200 text-right"></p>
+		<a class="btn width-400" href='editpost?action=deletePost&postId={{ post.id }}'>Supprimer le billet</a>
+	</div>
+	</form>
+
+	
+
+{% endblock %}

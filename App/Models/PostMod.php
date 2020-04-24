@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-// session_start();
+use Core\Model;
 
-class PostMod extends \Core\Model {
+class PostMod extends Model {
 	public $post;
 	public $comments;
 

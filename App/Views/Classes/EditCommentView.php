@@ -2,7 +2,9 @@
 
 namespace App\Views\Classes;
 
-class EditCommentView extends \Core\View {
+use Core\View;
+
+class EditCommentView extends View {
 	private $model;
 
 	public function __construct($model) {

@@ -12,7 +12,9 @@
 				<p class="p-1 text-light">{{ post.content|slice(0, 199) }} ...</p>
 				<div class="bg-gray flex-center">
 					<a class="btn" href="post?action=showPost&postId={{ post.id }}">Consulter</a>
-					{% block admin %}{% endblock %}
+					{% if (session.login == "admin") %}
+						<a class="btn" href="editpost?action=editPost&postId={{ post.id }}&content={{ post.content }}&title={{ post.title }}">Editer</a>
+					{% endif %}
 				</div>
 				<div>
 					<p class="p-1 text-center text-light border-bottom-radius-20">

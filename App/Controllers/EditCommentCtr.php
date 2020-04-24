@@ -10,11 +10,18 @@ class EditCommentCtr {
 	}
 
 	public function editComment() {
-		$this->model->post = ["id" => $_GET["postId"]];
-		$this->model->comment = [
-			"id" => $_GET["commentId"],
-			"comment" => $_GET["comment"]
-		];
+		// A faire secu editComment
+		if (($_GET["login"] == $_SESSION["login"]) || ($_SESSION["login"] == "admin")) {
+			$this->model->post = ["id" => $_GET["postId"]];
+			$this->model->comment = [
+				"id" => $_GET["commentId"],
+				"comment" => $_GET["comment"]
+			];
+		}
+		else {
+			header("Location: /home?action=showListPosts");
+			exit();
+		}
 	}
 
 	public function updateComment() {
@@ -24,6 +31,7 @@ class EditCommentCtr {
 		}
 		else {
 			header("Location: /post?action=showPost&postId={$_GET["postId"]}");
+			exit();
 		}
 	}
 
@@ -34,6 +42,7 @@ class EditCommentCtr {
 		}
 		else {
 			header("Location: /post?action=showPost&postId={$_GET["postId"]}");
+			exit();
 		}
 	}
 }

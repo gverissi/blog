@@ -30,9 +30,9 @@
 					<strong>{{ comment.login }}</strong> <em>(Ajouté le {{ comment.comment_date_fr }})</em>
 				</p>
 				<p class="p-2 text-light">{{ comment.comment }}</p>
-				{% if (comment.login == session.login) or (session.login) == "admin" %}
+				{% if (comment.login == session.login) or (session.login == "admin") %}
 					<div class="bg-gray flex-center">
-						<a class="btn" href="edit?action=editComment&postId={{ post.id }}&commentId={{ comment.id }}&comment={{ comment.comment }}">Editer</a>
+						<a class="btn" href="edit?action=editComment&postId={{ post.id }}&commentId={{ comment.id }}&login={{ comment.login }}&comment={{ comment.comment }}">Editer</a>
 					</div>
 				{% endif %}
 			</div>

@@ -2,7 +2,9 @@
 
 namespace App\Views\Classes;
 
-class AdminHomeView extends \Core\View {
+use Core\View;
+
+class CreatePostView extends View {
 	private $model;
 
 	public function __construct($model) {
@@ -11,9 +13,8 @@ class AdminHomeView extends \Core\View {
 
 	public function display() {
 		$params = [
-			'pageTitle' => 'Mon blog',
-			'posts' => $this->model->posts
+			'pageTitle' => 'Create post'
 		];
-		echo self::$twig->render('admin_home.twig', $params);
+		echo self::$twig->render('create_post.twig', $params);
 	}
 }

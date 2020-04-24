@@ -18,9 +18,14 @@ $actions = ['showPost', 'addComment'];
 $triad = ['model' => 'PostMod', 'view' => 'PostView', 'controller' => 'PostCtr'];
 $router->add($route, $actions, $triad);
 
-$route = '/admin/home';
-$actions = ['showListPosts', 'deletePost'];
-$triad = ['model' => 'AdminHomeMod', 'view' => 'AdminHomeView', 'controller' => 'AdminHomeCtr'];
+$route = '/editpost';
+$actions = ['createPosts', 'deletePost'];
+$triad = ['model' => 'EditPostMod', 'view' => 'EditPostView', 'controller' => 'EditPostCtr'];
+$router->add($route, $actions, $triad);
+
+$route = '/createpost';
+$actions = ['createPosts', 'deletePost'];
+$triad = ['model' => 'CreatePostMod', 'view' => 'CreatePostView', 'controller' => 'CreatePostCtr'];
 $router->add($route, $actions, $triad);
 
 $route = '/connexion';
