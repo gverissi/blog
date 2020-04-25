@@ -26,6 +26,7 @@ header {
 		display: flex;
 		justify-content: space-between;
 		background-color: #555555;
+		z-index: 1;
 		ul {
 			display: flex;
 			list-style-type: none;
@@ -126,18 +127,30 @@ header {
 	justify-content: space-between;
 	flex-wrap: wrap;
 	padding: 0 4rem;
-	.post {
+	.post-hover {
 		width: 30%;
 		margin-bottom: 2rem;
 		padding: 0;
-		h3 {
-			height: 4rem;
-			line-height: 4rem;
-			overflow: hidden;
+		border-radius: 20px;
+		.post {
+			border-radius: 20px;
+			transition-duration: 0.3s;
+			h3 {
+				height: 4rem;
+				line-height: 4rem;
+				overflow: hidden;
+			}
+			> p {
+				height: 100px;
+				overflow: hidden;
+			}
 		}
-		> p {
-			height: 100px;
-			overflow: hidden;
+		&:hover {
+			.post {
+				transform: translate(-5px, -5px);
+				
+				box-shadow: 10px 10px 15px 5px rgba(0, 0, 0, 0.7);
+			}
 		}
 	}
 }

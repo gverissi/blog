@@ -7,19 +7,22 @@
 	<h2 class="mp-2">Derniers billets du blog :</h2>
 	<div id="posts">
 		{% for post in posts %}
-			<div class="post">
-				<h3 class="text-dark text-center border-top-radius-20">{{ post.title }}</h3>
-				<p class="p-1 text-light">{{ post.content|slice(0, 199) }} ...</p>
-				<div class="bg-gray flex-center">
-					<a class="btn" href="post?action=showPost&postId={{ post.id }}">Consulter</a>
-					{% if (session.login == "admin") %}
-						<a class="btn" href="editpost?action=editPost&postId={{ post.id }}&content={{ post.content }}&title={{ post.title }}">Editer</a>
-					{% endif %}
-				</div>
-				<div>
-					<p class="p-1 text-center text-light border-bottom-radius-20">
-						<em>Posté le {{ post.creation_date_fr }}</em>
-					</p>
+		
+			<div class="post-hover">
+				<div class="post">
+					<h3 class="text-dark text-center border-top-radius-20">{{ post.title }}</h3>
+					<p class="p-1 text-light">{{ post.content|slice(0, 199) }} ...</p>
+					<div class="bg-gray flex-center">
+						<a class="btn" href="post?action=showPost&postId={{ post.id }}">Consulter</a>
+						{% if (session.login == "admin") %}
+							<a class="btn" href="editpost?action=editPost&postId={{ post.id }}&content={{ post.content }}&title={{ post.title }}">Editer</a>
+						{% endif %}
+					</div>
+					<div>
+						<p class="p-1 text-center text-light border-bottom-radius-20">
+							<em>Posté le {{ post.creation_date_fr }}</em>
+						</p>
+					</div>
 				</div>
 			</div>
 		{% endfor %}

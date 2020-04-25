@@ -168,6 +168,7 @@ header #navbar {
   display: flex;
   justify-content: space-between;
   background-color: #555555;
+  z-index: 1;
 }
 header #navbar ul {
   display: flex;
@@ -262,19 +263,28 @@ header .show {
   flex-wrap: wrap;
   padding: 0 4rem;
 }
-#posts .post {
+#posts .post-hover {
   width: 30%;
   margin-bottom: 2rem;
   padding: 0;
+  border-radius: 20px;
 }
-#posts .post h3 {
+#posts .post-hover .post {
+  border-radius: 20px;
+  transition-duration: 0.3s;
+}
+#posts .post-hover .post h3 {
   height: 4rem;
   line-height: 4rem;
   overflow: hidden;
 }
-#posts .post > p {
+#posts .post-hover .post > p {
   height: 100px;
   overflow: hidden;
+}
+#posts .post-hover:hover .post {
+  transform: translate(-5px, -5px);
+  box-shadow: 10px 10px 15px 5px rgba(0, 0, 0, 0.7);
 }
 
 form label {
