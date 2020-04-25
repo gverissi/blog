@@ -9,13 +9,23 @@
 			<li><a {% if active.home %} class="active" {% endif %} href="home?action=showListPosts">Accueil</a></li>
 			<li><a {% if active.posts %} class="active" {% endif %} href="">List des billets</a></li>
 			{% if (session.login == "admin") %}
-				<li><a {% if active.createPost %} class="active" {% endif %} href="createpost?action=createPost">Ajouter un billets</a></li>
+				<li><a {% if active.createPost %} class="active" {% endif %} href="createpost?action=createPost">Ajouter un billet</a></li>
 			{% endif %}
 		</ul>
+		{% if (session.login is empty) %}
 		<ul>
 			<li><a {% if active.inscription %} class="active" {% endif %} href="">Inscription</a></li>
 			<li><a {% if active.connexion %} class="active" {% endif %} href="connexion?action=formConnexion">Connexion</a></li>
 		</ul>
+		{% else %}
+		<div class="dropdown">
+			<div onclick="myFunction()" class="dropbtn">{{ session.login }}<span></span></div>
+			<div id="myDropdown" class="dropdown-content">
+				<a href="#">Mon compte</a>
+				<a href="connexion?action=logout">Déconnexion</a>
+			</div>
+		</div>
+		{% endif %}
 	</nav>
 	<div id="div_header_hidden" class="hide"></div>
 	

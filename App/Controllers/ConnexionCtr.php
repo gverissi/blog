@@ -20,4 +20,12 @@ class ConnexionCtr {
 			$this->model->errorMessage = "Veuillez inscrire vos identifiants svp !";
 		}
 	}
+
+	public function logout() {
+		$_SESSION = array();
+		session_destroy();
+		unset($_SESSION);
+		header("Location: /home?action=showListPosts");
+		exit();
+	}
 }
